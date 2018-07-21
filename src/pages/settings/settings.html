@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ pageTitle }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <button ion-button color="danger" block [disabled]="isenabled" (click)="logout()">Log out
+    </button>
+  </div>
+</ion-content>

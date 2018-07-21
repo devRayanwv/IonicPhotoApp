@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Photos List</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()" [disabled]="isenabled">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="isLoading" text-center>
+    <p>Please Wait, loading Photos... </p>
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+  <ion-list *ngIf="!isLoading">
+    <ion-item-sliding *ngFor="let photo of photoList" >
+      <button ion-item (click)="openPhoto(photo)">
+        <ion-avatar item-start>
+          <img [src]="photo.thumbnailUrl" />
+        </ion-avatar>
+        <h2>{{photo.title}}</h2>
+        <ion-note item-end></ion-note>
+      </button>
+
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more photos...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

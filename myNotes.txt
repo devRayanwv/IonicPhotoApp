@@ -1,0 +1,12 @@
+This is the simple ionic app, I have some comments:-
+#1) The photos on endpoint (​ https://jsonplaceholder.typicode.com/photos​ ) has 5000 results, I tried to let the user
+    load them all at first and this takes longer specially for slow internet connection. So, I let the app load 10 photos
+    per request, which improve the user experience little bit.
+
+
+#2) On the endpoint there is no relations between photos and comments. Each comments belongs to (posts). I assumed the
+    "post id" equals to "photo id" to let the application run.
+
+#3) I run out of the time, and I did not focus on code comments and I did not refactor some codes.
+
+#4)
